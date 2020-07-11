@@ -1,7 +1,31 @@
 import React from 'react';
 import AddDoctor from './AddDoctor';
-import Paper from '@material-ui/core/Paper';
-import { TableContainer, Table } from '@material-ui/core';
+import DoctorTable from './DoctorTable'
+
+
+const doctors =[
+    {
+        id:1,
+        name: "John",
+        lastName: "Snow",
+        dateOfBirth: "1991-08-05",
+        specialization: "laryngology",
+    },
+    {
+        id:2,
+        name: "Son",
+        lastName: "Goku",
+        dateOfBirth: "1993-10-25",
+        specialization: "psychology",
+    },
+    {
+        id:3,
+        name: "James",
+        lastName: "McCandy",
+        dateOfBirth: "1989-02-05",
+        specialization: "ortchopedist",
+    },
+]
 
 const Doctors = () => {
 
@@ -9,11 +33,9 @@ const Doctors = () => {
     return ( 
         <div className="doctors">
             <AddDoctor/>
-            <TableContainer component={Paper}>
-                <Table  aria-label="simple table">
-
-                </Table>
-            </TableContainer>
+            <DoctorTable
+            doctors={doctors}
+            />
         </div>
      );
 }
