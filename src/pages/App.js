@@ -11,7 +11,7 @@ function App() {
     <Router>
       <div className="wrapper">
         <section className="pages">
-          <Route path="/" component={Home}/>
+          <Route path="/home" component={Home}/>
           <Route path="/doctors" component={Doctors}/>
         </section>
         <NavBar />
