@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/index.scss",
+        "../scss/_navBar.scss"
+    ],
+    "names": [],
+    "file": "index.css"
+}

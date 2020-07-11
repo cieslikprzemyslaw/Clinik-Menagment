@@ -1,0 +1,13 @@
+.summary{
+    margin: 10px 20px;
+    padding: 20px;
+
+    width: 25%;
+    height: 17vh;
+    border: 2px solid black;
+
+    &__title{
+        text-align: center;
+        padding-bottom: 15px;
+    }
+}
