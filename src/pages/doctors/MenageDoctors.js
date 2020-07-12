@@ -30,10 +30,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const AddDoctor = () => {
+const AddDoctor = ({doctor, handleChange, addDoctor, counter }) => {
+
     const classes = useStyles();
     const [modalStyle] = React.useState(getModalStyle);
-    const [showModal, setShowModal] = useState(false)
+    const [showModal, setShowModal] = useState(false);
 
     const handleClick = () => {
         setShowModal(!showModal)
@@ -42,12 +43,15 @@ const AddDoctor = () => {
     const body = (
         <form style={modalStyle} className={classes.paper} noValidate autoComplete="off">
             <section>
-                <TextField required id="standard-required" label="Name" />
-                <TextField required id="standard-required" label="Last Name" />
-                <TextField required id="date" label="Birthday" type="date" defaultValue="2000-01-01" className={classes.TextField} InputLabelProps={{ shrink: true }} />
-                <TextField required id="standard-required" label="Specialization" />
+                <TextField required id="standard-required" label="Name" name="name" value={doctor.name} onChange={handleChange} />
+                <TextField required id="standard-required" label="Last Name" name="lastName" value={doctor.lastName} onChange={handleChange} />
+                <TextField required id="date" label="Birthday" type="date" defaultValue="2000-01-01" className={classes.TextField} InputLabelProps={{ shrink: true }} name="dateOfBirth" value={doctor.dateOfBirth} onChange={handleChange}/>
+                <TextField required id="standard-required" label="Specialization" name="specialization" value={doctor.specialization} onChange={handleChange}/>
+                <TextField required id="standard-required" label="e-mail" name="email" value={doctor.email} onChange={handleChange}/>
+                <TextField required id="standard-required" label="phone number" name="phoneNumber" value={doctor.phoneNumber} onChange={handleChange}/>
             </section>
-            <Button variant="contained" color="primary" style={{ marginTop: "20px" }}>Add</Button>
+            <Button variant="contained" color="primary" style={{ marginTop: "20px" }} onClick={addDoctor}>Add</Button>
+            <Button variant="contained" color="secondary" style={{ marginTop: "20px", marginLeft: "40px" }}>Cancel</Button>
         </form>
 
     )
@@ -65,7 +69,7 @@ const AddDoctor = () => {
                     {body}
                 </Modal>
             </article>
-            
+
         </section>
     );
 }

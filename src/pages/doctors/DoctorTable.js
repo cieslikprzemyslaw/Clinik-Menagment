@@ -1,22 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { TableContainer, Table, Paper, TableBody, TableRow, TableCell, TableHead } from '@material-ui/core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 const TableDoctor = ({doctors}) => {
 
-    const doctorList = doctors.map(doctor => {
+    const doctorList = doctors.map(doctorInfo => {
         return(
-        <TableRow key={doctor.id}>
+        <TableRow key={doctorInfo.id}>
             <TableCell component="th" scope="row">
-                {doctor.name}
+                {doctorInfo.name}
             </TableCell>
             <TableCell component="th" scope="row">
-                {doctor.lastName}
+                {doctorInfo.lastName}
             </TableCell>
             <TableCell component="th" scope="row">
-                {doctor.dateOfBirth}
+                {doctorInfo.dateOfBirth}
             </TableCell>
             <TableCell component="th" scope="row">
-                {doctor.specialization}
+                {doctorInfo.specialization}
+            </TableCell>
+            <TableCell component="th" scope="row">
+            <FontAwesomeIcon icon={faEdit}/>
+            </TableCell>
+            <TableCell component="th" scope="row">
+            <FontAwesomeIcon icon={faTrashAlt}/>
             </TableCell>
         </TableRow>)
     })
@@ -37,6 +45,12 @@ const TableDoctor = ({doctors}) => {
                             </TableCell>
                             <TableCell component="th" scope="row">
                                 <p>Specialization</p>
+                            </TableCell>
+                            <TableCell component="th" scope="row">
+                                <p>Edit</p>
+                            </TableCell>
+                            <TableCell component="th" scope="row">
+                                <p>Delete</p>
                             </TableCell>
                         </TableRow>
                     </TableHead>
