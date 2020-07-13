@@ -4,7 +4,7 @@ import DoctorTable from './DoctorTable'
 
 const Doctors = () => {
 
-    const [idCounter, setIdCounter] = useState(5);
+    let counter = 4;
     const [doctors, setDoctors] = useState([
         {
             id: 1,
@@ -36,7 +36,7 @@ const Doctors = () => {
     ]);
 
     const [doctor, setDoctor] = useState({
-        id: idCounter,
+        id: 0,
         name: "",
         lastName: "",
         dateOfBirth: "2000-01-01",
@@ -50,13 +50,15 @@ const Doctors = () => {
         const value = e.target.value;
         const name = e.target.name;
         setDoctor({
+            id:counter++,
             ...doctor,
             [name]: value
         })
     };
 
     const handleClickAddDoctor = () => {
-        setDoctors([...doctors, doctor]);
+        setDoctors([...doctors,doctor]);
+        counter++
         console.log(doctors)
     };
 
